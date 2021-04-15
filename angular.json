@@ -1,7 +1,51 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "commonShare": {
+      "projectType": "library",
+      "root": "projects/common-share",
+      "sourceRoot": "projects/common-share/src",
+      "prefix": "cs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/common-share/tsconfig.lib.json",
+            "project": "projects/common-share/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/common-share/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/common-share/src/test.ts",
+            "tsConfig": "projects/common-share/tsconfig.spec.json",
+            "karmaConfig": "projects/common-share/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/common-share/tsconfig.lib.json",
+              "projects/common-share/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "commonShare"
 }

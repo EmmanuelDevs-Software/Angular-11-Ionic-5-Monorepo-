@@ -1,0 +1,22 @@
+{
+  "projects": {
+    "clients": {
+      "name": "clients",
+      "integrations": {},
+      "type": "angular",
+      "root": "./projects/clients"
+    },
+    "admin-panel": {
+      "name": "admin-panel",
+      "integrations": {},
+      "type": "angular",
+      "root": "./projects/admin-panel"
+    },
+    "pet-house": {
+      "name": "pet-house",
+      "integrations": {},
+      "type": "angular",
+      "root": "./projects/pet-house"
+    }
+  }
+}
